@@ -1,0 +1,164 @@
+@import "mixins";
+@import "variables";
+
+* {
+  @include reset-styles;
+}
+
+body {
+  @include default-styles;
+  background-image: url('../images/bg-pattern-desktop.svg');
+}
+
+.container {
+  padding-top: 2rem;
+  @include d-flex(column);
+}
+
+.logo {
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  order: -2;
+}
+
+.graphic {
+  order: -1;
+  width: 100%;
+}
+
+img.desktop {
+  display: none;
+  width: 100%;
+}
+
+img.mobile {
+  display: block;
+  width: 100%;
+}
+
+.intro {
+  margin-top: 4rem;
+  padding: 0rem 2rem;
+}
+
+.intro > h1 {
+  font : {
+    size: 3.6rem;
+    weight: 600;
+  }
+  text: {
+    align: center;
+    transform: uppercase;
+  }
+  line-height: 1;
+  letter-spacing: 6px;
+}
+
+span.light-gray {
+  color: $primary1;
+  font-weight: 300;
+}
+
+.intro > p {
+  color: $primary1;
+  margin-top: 2rem;
+}
+
+#input_email {
+  width: 100%;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  border: 1px solid #ce9797;
+  border-radius: 2rem;
+  outline: none;
+}
+
+#input_email::placeholder {
+  font: {
+    family: $font;
+    weight: 600;
+  }
+  color: $primary1;
+}
+
+.form {
+  position: relative;
+}
+
+.proceed {
+  background: linear-gradient($gradient2);
+  border: 1px solid $primary1;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  outline: none;
+}
+
+.proceed:hover{
+  box-shadow: 2px 2px 10px $primary1;
+}
+
+.proceed > img {
+  max-height: 15px;
+}
+
+p.status.error{
+  color: #ff0000;
+  margin-top: 0;
+}
+
+p.status.success{
+  color: green;
+  margin-top: 0;
+}
+
+.attribution {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+//Media Queries for Desktops and Laptops Screen
+@media (min-width: 601px) {
+  .container {
+    padding-top: initial;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 100px auto 100px;
+  }
+
+  .logo {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    max-width: 500px;
+    margin-bottom: initial;
+  }
+
+  .intro {
+    grid-row: 2/-1;
+    grid-column: 1/2;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .graphic {
+    grid-row: 1/-1;
+    grid-column: 2/-1;
+  }
+
+  img.desktop {
+    display: block;
+  }
+
+  img.mobile {
+    display: none;
+  }
+}

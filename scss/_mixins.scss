@@ -1,0 +1,22 @@
+@mixin reset-styles {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin default-styles {
+  font : {
+    size: 1rem;
+    family: $font;
+    weight: 400;
+  }
+  color: $neutral;
+  line-height: 1.7;
+}
+
+@mixin d-flex($direction:row){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
